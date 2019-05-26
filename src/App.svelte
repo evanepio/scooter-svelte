@@ -40,5 +40,4 @@
   <section class="main">
     <BallField {names} />
   </section>
-
 </div>
