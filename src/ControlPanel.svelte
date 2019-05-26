@@ -15,8 +15,14 @@
   .go {
     background-color: #a7c766;
   }
+  .go:hover {
+    border-color: green;
+  }
   .reset {
     background-color: #e52a1d;
+  }
+  .reset:hover {
+    border-color: rgb(83, 4, 4);
   }
 </style>
 
