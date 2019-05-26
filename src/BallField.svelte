@@ -6,7 +6,6 @@
 
 <style>
   div {
-    background-color: #f08c2b;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
