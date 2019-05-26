@@ -1,7 +1,7 @@
 <script>
   import Ball from "./Ball.svelte";
 
-  export let names = ["Susan", "Dave", "Carol"];
+  export let names = [];
 </script>
 
 <style>
