@@ -1,4 +1,5 @@
 <script>
+  import ControlPanel from "./ControlPanel.svelte";
   import BallField from "./BallField.svelte";
 
   let names = ["Susan", "Dave", "Carol", "Bill"];
@@ -19,23 +20,11 @@
   .main {
     flex-grow: 4;
   }
-
-  button {
-    color: white;
-    display: block;
-  }
-  .go {
-    background-color: #a7c766;
-  }
-  .reset {
-    background-color: #e52a1d;
-  }
 </style>
 
 <div>
   <section class="controls">
-    <button class="reset">Reset</button>
-    <button class="go">Go</button>
+    <ControlPanel />
   </section>
   <section class="main">
     <BallField {names} />
