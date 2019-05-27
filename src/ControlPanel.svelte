@@ -33,13 +33,13 @@
     display: block;
   }
   .go {
-    background-color: #a7c766;
+    background-color: rgb(166, 198, 102);
   }
   .go:hover {
-    border-color: green;
+    border-color: rgb(0, 128, 0);
   }
   .reset {
-    background-color: #e52a1d;
+    background-color: rgb(229, 42, 29);
   }
   .reset:hover {
     border-color: rgb(83, 4, 4);
