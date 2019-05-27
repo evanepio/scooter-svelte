@@ -8,8 +8,7 @@
   $: nonEliminatedEntries = entries.filter(entry => !entry.eliminated);
 
   function getRandom(min, max) {
-    var x = Math.floor(Math.random() * (max - min + 1)) + min;
-    return x;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   function oneInNChances(numChances) {
