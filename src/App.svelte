@@ -5,8 +5,6 @@
   let entries = [];
   let id = 0;
 
-  $: nonEliminatedEntries = entries.filter(entry => !entry.eliminated);
-
   function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -16,22 +14,26 @@
   }
 
   function handleGo() {
-    entries = entries.map(entry => {
-      let calculatedEntry = entry;
-
+    entries.forEach(entry => {
+      let nonEliminated = entries.filter(entry => !entry.eliminated).length;
       if (!entry.eliminated) {
-        if (nonEliminatedEntries.length == 1) {
-          calculatedEntry = { ...entry, winner: true };
+        if (nonEliminated == 1) {
+          entry.winner = true;
         } else {
-          calculatedEntry = { ...entry, eliminated: oneInNChances(4) };
+          entry.eliminated = oneInNChances(4);
         }
       }
-
-      // ensure svelte updates reactive value nonEliminatedEntries
-      entries = entries;
-
-      return calculatedEntry;
     });
+
+    if (entries.filter(entry => !entry.eliminated).length == 1) {
+      entries.forEach(entry => {
+        if (!entry.eliminated) {
+          entry.winner = true;
+        }
+      });
+    }
+
+    entries = entries;
   }
 
   function handleReset() {
