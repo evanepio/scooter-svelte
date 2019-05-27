@@ -5,21 +5,15 @@
   let entries = [];
   let id = 0;
 
+  $: nonEliminatedEntries = entries.filter(entry => !entry.eliminated);
+
   function getRandom(min, max) {
     var x = Math.floor(Math.random() * (max - min + 1)) + min;
     return x;
   }
 
   function oneInNChances(numChances) {
-    var result = false;
-
-    var x = getRandom(1, numChances);
-
-    if (x == 1) {
-      result = true;
-    }
-
-    return result;
+    return getRandom(1, numChances) == 1;
   }
 
   function handleGo() {
@@ -27,8 +21,15 @@
       let calculatedEntry = entry;
 
       if (!entry.eliminated) {
-        calculatedEntry = { ...entry, eliminated: oneInNChances(4) };
+        if (nonEliminatedEntries.length == 1) {
+          calculatedEntry = { ...entry, winner: true };
+        } else {
+          calculatedEntry = { ...entry, eliminated: oneInNChances(4) };
+        }
       }
+
+      // ensure svelte updates reactive value nonEliminatedEntries
+      entries = entries;
 
       return calculatedEntry;
     });
@@ -36,7 +37,7 @@
 
   function handleReset() {
     entries = entries.map(entry => {
-      return { ...entry, eliminated: false };
+      return { ...entry, eliminated: false, winner: false };
     });
   }
 
@@ -44,7 +45,8 @@
     let entry = {
       name: event.detail,
       id: id++,
-      eliminated: false
+      eliminated: false,
+      winner: false
     };
     entries = [...entries, entry];
   }
