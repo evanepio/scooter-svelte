@@ -5,18 +5,46 @@
   let entries = [];
   let id = 0;
 
+  function getRandom(min, max) {
+    var x = Math.floor(Math.random() * (max - min + 1)) + min;
+    return x;
+  }
+
+  function oneInNChances(numChances) {
+    var result = false;
+
+    var x = getRandom(1, numChances);
+
+    if (x == 1) {
+      result = true;
+    }
+
+    return result;
+  }
+
   function handleGo() {
-    console.log("Go!");
+    entries = entries.map(entry => {
+      let calculatedEntry = entry;
+
+      if (!entry.eliminated) {
+        calculatedEntry = { ...entry, eliminated: oneInNChances(4) };
+      }
+
+      return calculatedEntry;
+    });
   }
 
   function handleReset() {
-    console.log("Reset!");
+    entries = entries.map(entry => {
+      return { ...entry, eliminated: false };
+    });
   }
 
   function handleAddName(event) {
     let entry = {
       name: event.detail,
-      id: id++
+      id: id++,
+      eliminated: false
     };
     entries = [...entries, entry];
   }
