@@ -1,27 +1,12 @@
-*Psst — looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Scooter Svelte
 
----
-
-# svelte app
-
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
-
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
-
+This is an implementation of PEIDevs' infamour Scooter app. This version is implemented in [Svelte](https://svelte.dev/).
 
 ## Get started
 
 Install the dependencies...
 
 ```bash
-cd svelte-app
 npm install
 ```
 
@@ -33,8 +18,7 @@ npm run dev
 
 Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
 
-
-## Deploying to the web
+## Deploying to the web (these are from the project template I used)
 
 ### With [now](https://zeit.co/now)
 
