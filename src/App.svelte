@@ -3,6 +3,23 @@
   import BallField from "./BallField.svelte";
 
   let entries = [];
+  let id = 0;
+
+  function handleGo() {
+    console.log("Go!");
+  }
+
+  function handleReset() {
+    console.log("Reset!");
+  }
+
+  function handleAddName(event) {
+    let entry = {
+      name: event.detail,
+      id: id++
+    };
+    entries = [...entries, entry];
+  }
 </script>
 
 <style>
@@ -24,7 +41,10 @@
 
 <div>
   <section class="controls">
-    <ControlPanel />
+    <ControlPanel
+      on:go={handleGo}
+      on:reset={handleReset}
+      on:addname={handleAddName} />
   </section>
   <section class="main">
     <BallField {entries} />
