@@ -20,6 +20,10 @@
     };
     entries = [...entries, entry];
   }
+
+  function handleBallClick(event) {
+    entries = entries.filter(entry => event.detail.id != entry.id);
+  }
 </script>
 
 <style>
@@ -47,6 +51,6 @@
       on:addname={handleAddName} />
   </section>
   <section class="main">
-    <BallField {entries} />
+    <BallField {entries} on:ballclicked={handleBallClick} />
   </section>
 </div>

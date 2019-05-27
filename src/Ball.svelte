@@ -1,5 +1,13 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
   export let entry;
+
+  function handleClick() {
+    dispatch("ballclicked", entry);
+  }
 </script>
 
 <style>
@@ -21,6 +29,6 @@
   }
 </style>
 
-<div>
+<div on:click={handleClick}>
   <span>{entry.name}</span>
 </div>
