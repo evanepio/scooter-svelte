@@ -1,6 +1,11 @@
 # Scooter Svelte
 
-This is an implementation of PEIDevs' infamour Scooter app. This version is implemented in [Svelte](https://svelte.dev/).
+This is an implementation of PEIDevs' infamour Scooter app. This version is implemented in [Svelte](https://svelte.dev/) version 3.0.0.
+
+Other Scooters:
+
+* [The People's Scooter](https://peidevs.github.io/Event_Resources/): the dependable classic, implemented in the Dojo Framework (version 1.10.3)
+* [Angular Scooter](http://peidevs.github.io/Scooter/): the slightly fancier one, implemented in Angular JS v. 1.3.15
 
 ## Get started
 
