@@ -15,8 +15,8 @@
     display: table;
     width: 150px;
     height: 150px;
-    background: white;
-    border: 8px solid #7c4726;
+    background: rgb(255, 255, 255);
+    border: 8px solid rgb(124, 71, 38);
     border-radius: 50%;
     line-height: 40px;
     cursor: pointer;
@@ -27,8 +27,12 @@
     display: table-cell;
     vertical-align: middle;
   }
+
+  .eliminated {
+    background: rgb(124, 71, 38);
+  }
 </style>
 
-<div on:click={handleClick}>
+<div on:click={handleClick} class:eliminated={entry.eliminated}>
   <span>{entry.name}</span>
 </div>
