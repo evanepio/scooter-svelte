@@ -2,7 +2,7 @@
   import ControlPanel from "./ControlPanel.svelte";
   import BallField from "./BallField.svelte";
 
-  let names = ["Susan", "Dave", "Carol", "Bill"];
+  let entries = [];
 </script>
 
 <style>
@@ -27,6 +27,6 @@
     <ControlPanel />
   </section>
   <section class="main">
-    <BallField {names} />
+    <BallField {entries} />
   </section>
 </div>

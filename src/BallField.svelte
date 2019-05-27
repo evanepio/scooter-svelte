@@ -1,7 +1,7 @@
 <script>
   import Ball from "./Ball.svelte";
 
-  export let names = [];
+  export let entries = [];
 </script>
 
 <style>
@@ -13,7 +13,7 @@
 </style>
 
 <div>
-  {#each names as name}
-    <Ball {name} />
+  {#each entries as entry}
+    <Ball {entry} />
   {/each}
 </div>

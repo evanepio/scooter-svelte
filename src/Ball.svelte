@@ -1,5 +1,5 @@
 <script>
-  export let name;
+  export let entry;
 </script>
 
 <style>
@@ -22,5 +22,5 @@
 </style>
 
 <div>
-  <span>{name}</span>
+  <span>{entry.name}</span>
 </div>
