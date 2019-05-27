@@ -31,8 +31,15 @@
   .eliminated {
     background: rgb(124, 71, 38);
   }
+
+  .winner {
+    background: rgb(166, 198, 102);
+  }
 </style>
 
-<div on:click={handleClick} class:eliminated={entry.eliminated}>
+<div
+  on:click={handleClick}
+  class:eliminated={entry.eliminated}
+  class:winner={entry.winner}>
   <span>{entry.name}</span>
 </div>
