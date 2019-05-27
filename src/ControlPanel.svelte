@@ -17,6 +17,7 @@
     // When user hits enter and name has a value, fire event
     if (event.key == "Enter" && name) {
       dispatch("addname", name);
+      name = "";
     }
   }
 </script>
