@@ -33,13 +33,9 @@
   }
 
   .controls {
-    flex-grow: 1;
-    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
     flex-direction: column;
-  }
-
-  .main {
-    flex-grow: 4;
   }
 </style>
 
