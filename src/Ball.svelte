@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
 
   const dispatch = createEventDispatcher();
 
@@ -11,7 +12,13 @@
 </script>
 
 <style>
-  div {
+  .container {
+    width: 160px;
+    height: 160px;
+    margin: 0.5em;
+  }
+
+  .ball {
     display: table;
     width: 150px;
     height: 150px;
@@ -28,18 +35,19 @@
     vertical-align: middle;
   }
 
-  .eliminated {
-    background: rgb(124, 71, 38);
-  }
-
   .winner {
     background: rgb(166, 198, 102);
   }
 </style>
 
-<div
-  on:click={handleClick}
-  class:eliminated={entry.eliminated}
-  class:winner={entry.winner}>
-  <span>{entry.name}</span>
+<div class="container">
+  {#if !entry.eliminated}
+    <div
+      class="ball"
+      on:click={handleClick}
+      class:winner={entry.winner}
+      transition:fade>
+      <span>{entry.name}</span>
+    </div>
+  {/if}
 </div>
