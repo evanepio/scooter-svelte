@@ -5,10 +5,6 @@
   const dispatch = createEventDispatcher();
 
   export let entries = [];
-
-  function handleBallClick(event) {
-    dispatch("ballclicked", event.detail);
-  }
 </script>
 
 <style>
@@ -21,6 +17,8 @@
 
 <div>
   {#each entries as entry}
-    <Ball {entry} on:ballclicked={handleBallClick} />
+    <Ball
+      {entry}
+      on:ballclicked={event => dispatch('ballclicked', event.detail)} />
   {/each}
 </div>

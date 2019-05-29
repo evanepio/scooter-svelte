@@ -5,10 +5,6 @@
   const dispatch = createEventDispatcher();
 
   export let entry;
-
-  function handleClick() {
-    dispatch("ballclicked", entry);
-  }
 </script>
 
 <style>
@@ -56,7 +52,7 @@
   {#if !entry.eliminated}
     <div
       class="ball"
-      on:click={handleClick}
+      on:click={() => dispatch('ballclicked', entry)}
       class:winner={entry.winner}
       transition:fade>
       <span>{entry.name}</span>
