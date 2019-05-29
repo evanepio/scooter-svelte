@@ -1,7 +1,7 @@
 <script>
   import { entries } from "./stores/entries.js";
-  import ControlPanel from "./ControlPanel.svelte";
-  import BallField from "./BallField.svelte";
+  import ControlPanel from "./components/ControlPanel.svelte";
+  import BallField from "./components/BallField.svelte";
 </script>
 
 <style>
