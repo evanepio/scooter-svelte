@@ -13,7 +13,6 @@ let id = 0;
 const { subscribe, set, update } = writable([]);
 
 const addEntry = name => {
-  console.log(name);
   update(entries => [
     ...entries,
     {
