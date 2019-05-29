@@ -1,5 +1,5 @@
 <script>
-  import { entries } from "./stores/entries.js";
+  import { entries, remainingEntries } from "./stores/entries.js";
   import ControlPanel from "./components/ControlPanel.svelte";
   import BallField from "./components/BallField.svelte";
 </script>
@@ -23,6 +23,7 @@
       on:go={() => entries.playRound()}
       on:reset={() => entries.reset()}
       on:addname={event => entries.addEntry(event.detail)} />
+    <p>There are {$remainingEntries} entries remaining.</p>
   </section>
   <section class="main">
     <BallField
