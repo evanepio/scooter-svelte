@@ -41,6 +41,8 @@
 
   <input bind:value={name} on:keydown={handleKeyDown} />
 
+  <p>Accidentally added someone? Click the ball and make it disappear!</p>
+
   <p>When you're done, click here:</p>
 
   <button class="start" on:click={startClicked}>Start</button>
