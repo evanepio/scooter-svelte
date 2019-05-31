@@ -1,7 +1,10 @@
 <script>
   import { entries, remainingEntries, winner } from "./stores/entries.js";
+  import SetupPanel from "./components/SetupPanel.svelte";
   import ControlPanel from "./components/ControlPanel.svelte";
   import BallField from "./components/BallField.svelte";
+
+  let playing = false;
 </script>
 
 <style>
@@ -14,26 +17,38 @@
     flex-grow: 0;
     flex-shrink: 0;
     flex-direction: column;
+    width: 20%;
   }
 </style>
 
 <div>
   <section class="controls">
-    <ControlPanel
-      on:go={() => entries.playRound()}
-      on:reset={() => entries.reset()}
-      on:addname={event => entries.addEntry(event.detail)} />
+    {#if playing}
+      <ControlPanel
+        on:go={() => entries.playRound()}
+        on:reset={() => {
+          playing = false;
+          entries.reset();
+        }} />
 
-    {#if $winner}
-      <p>Congratulations, {$winner}!</p>
+      {#if $winner}
+        <p>Congratulations, {$winner}!</p>
+      {:else}
+        <p>There are {$remainingEntries} entries remaining.</p>
+      {/if}
     {:else}
-      <p>There are {$remainingEntries} entries remaining.</p>
+      <SetupPanel
+        on:start={() => (playing = true)}
+        on:addname={event => entries.addEntry(event.detail)} />
     {/if}
-
   </section>
   <section class="main">
     <BallField
       entries={$entries}
-      on:ballclicked={event => entries.removeEntry(event.detail)} />
+      on:ballclicked={event => {
+        if (!playing) {
+          entries.removeEntry(event.detail);
+        }
+      }} />
   </section>
 </div>

@@ -3,22 +3,12 @@
 
   const dispatch = createEventDispatcher();
 
-  let name = "";
-
   function goClicked(event) {
     dispatch("go");
   }
 
   function resetClicked(event) {
     dispatch("reset");
-  }
-
-  function handleKeyDown(event) {
-    // When user hits enter and name has a value, fire event
-    if (event.key == "Enter" && name) {
-      dispatch("addname", name);
-      name = "";
-    }
   }
 </script>
 
@@ -47,8 +37,12 @@
 </style>
 
 <div>
-  <button class="reset" on:click={resetClicked}>Reset</button>
+  <p>
+    Click Go to play a round. Every round, remaining entries have a 1-in-4
+    chance of elimination.
+  </p>
   <button class="go" on:click={goClicked}>Go</button>
 
-  <input bind:value={name} on:keydown={handleKeyDown} />
+  <p>Click Reset to stop the current game and edit entries.</p>
+  <button class="reset" on:click={resetClicked}>Reset</button>
 </div>
