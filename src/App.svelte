@@ -39,6 +39,7 @@
     {:else}
       <SetupPanel
         on:start={() => (playing = true)}
+        on:shuffle={() => entries.shuffle()}
         on:addname={event => entries.addEntry(event.detail)} />
     {/if}
   </section>

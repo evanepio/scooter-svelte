@@ -13,6 +13,10 @@
     }
   }
 
+  function shuffleClicked(event) {
+    dispatch("shuffle");
+  }
+
   function startClicked(event) {
     dispatch("start");
   }
@@ -42,6 +46,10 @@
   <input bind:value={name} on:keydown={handleKeyDown} />
 
   <p>Accidentally added someone? Click the ball and make it disappear!</p>
+
+  <p>You'll likely want to shuffle the entries:</p>
+
+  <button class="start" on:click={shuffleClicked}>Shuffle</button>
 
   <p>When you're done, click here:</p>
 

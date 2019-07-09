@@ -60,11 +60,29 @@ const playRound = () =>
     return entries;
   });
 
+const shuffle = () =>
+  update(entries => {
+    // Lifted from https://www.frankmitchell.org/2015/01/fisher-yates/
+    let loopIndex = 0,
+      randomIndex = 0,
+      temp = null;
+
+    for (loopIndex = entries.length - 1; loopIndex > 0; loopIndex -= 1) {
+      randomIndex = Math.floor(Math.random() * (loopIndex + 1));
+      temp = entries[loopIndex];
+      entries[loopIndex] = entries[randomIndex];
+      entries[randomIndex] = temp;
+    }
+
+    return entries;
+  });
+
 export const entries = {
   subscribe,
   playRound,
   addEntry,
   removeEntry,
+  shuffle,
   reset,
   clear
 };
