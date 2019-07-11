@@ -1,12 +1,6 @@
 import { writable } from "svelte/store";
 
-function getRandom(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function oneInNChances(numChances) {
-  return getRandom(1, numChances) == 1;
-}
+import { oneInNChances, shuffleList } from "../util/random";
 
 let id = 0;
 
@@ -59,22 +53,7 @@ const playRound = () =>
     return entries;
   });
 
-const shuffle = () =>
-  update(entries => {
-    // Lifted from https://www.frankmitchell.org/2015/01/fisher-yates/
-    let loopIndex = 0,
-      randomIndex = 0,
-      temp = null;
-
-    for (loopIndex = entries.length - 1; loopIndex > 0; loopIndex -= 1) {
-      randomIndex = Math.floor(Math.random() * (loopIndex + 1));
-      temp = entries[loopIndex];
-      entries[loopIndex] = entries[randomIndex];
-      entries[randomIndex] = temp;
-    }
-
-    return entries;
-  });
+const shuffle = () => update(shuffleList);
 
 const entries = {
   subscribe,
