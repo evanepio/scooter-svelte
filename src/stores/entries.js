@@ -1,4 +1,4 @@
-import { writable, derived } from "svelte/store";
+import { writable } from "svelte/store";
 
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -85,13 +85,3 @@ export const entries = {
   reset,
   clear
 };
-
-export const remainingEntries = derived(
-  entries,
-  $entries => $entries.filter(entry => !entry.eliminated).length
-);
-
-export const winner = derived(entries, $entries => {
-  let list = $entries.filter(entry => entry.winner == true);
-  return list.length === 1 ? list[0].name : null;
-});
