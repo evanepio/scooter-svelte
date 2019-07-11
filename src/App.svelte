@@ -1,6 +1,6 @@
 <script>
-  import entries from "./stores/entries.js";
-  import { remainingEntries, winner } from "./stores/derived.js";
+  import entries from "./stores/entries";
+  import { remainingEntries, winner } from "./stores/derived";
   import SetupPanel from "./components/SetupPanel.svelte";
   import ControlPanel from "./components/ControlPanel.svelte";
   import BallField from "./components/BallField.svelte";
