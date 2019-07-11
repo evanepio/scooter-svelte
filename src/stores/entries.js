@@ -12,7 +12,7 @@ let id = 0;
 
 const { subscribe, set, update } = writable([]);
 
-const addEntry = name => {
+const addEntry = name =>
   update(entries => [
     ...entries,
     {
@@ -22,7 +22,6 @@ const addEntry = name => {
       winner: false
     }
   ]);
-};
 
 const removeEntry = entryToRemove =>
   update(entries => entries.filter(entry => entryToRemove.id != entry.id));
