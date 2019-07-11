@@ -1,5 +1,5 @@
 <script>
-  import { entries } from "./stores/entries.js";
+  import entries from "./stores/entries.js";
   import { remainingEntries, winner } from "./stores/derived.js";
   import SetupPanel from "./components/SetupPanel.svelte";
   import ControlPanel from "./components/ControlPanel.svelte";

@@ -76,7 +76,7 @@ const shuffle = () =>
     return entries;
   });
 
-export const entries = {
+const entries = {
   subscribe,
   playRound,
   addEntry,
@@ -85,3 +85,5 @@ export const entries = {
   reset,
   clear
 };
+
+export default entries;

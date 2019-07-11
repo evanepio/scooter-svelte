@@ -1,6 +1,6 @@
 import { writable, derived } from "svelte/store";
 
-import { entries } from "./entries";
+import entries from "./entries";
 
 export const remainingEntries = derived(
   entries,
