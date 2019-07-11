@@ -40,6 +40,7 @@
       <SetupPanel
         on:start={() => (playing = true)}
         on:shuffle={() => entries.shuffle()}
+        on:clear={() => entries.clear()}
         on:addname={event => entries.addEntry(event.detail)} />
     {/if}
   </section>

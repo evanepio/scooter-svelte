@@ -20,6 +20,10 @@
   function startClicked(event) {
     dispatch("start");
   }
+
+  function clearClicked(event) {
+    dispatch("clear");
+  }
 </script>
 
 <style>
@@ -32,11 +36,19 @@
     color: white;
     display: block;
   }
+
   .start {
     background-color: rgb(166, 198, 102);
   }
   .start:hover {
     border-color: rgb(0, 128, 0);
+  }
+
+  .clear {
+    background-color: rgb(229, 42, 29);
+  }
+  .clear:hover {
+    border-color: rgb(83, 4, 4);
   }
 </style>
 
@@ -54,4 +66,10 @@
   <p>When you're done, click here:</p>
 
   <button class="start" on:click={startClicked}>Start</button>
+
+  <p>But...</p>
+
+  <p>Maybe you need to start over again in one fell swoop. Click here:</p>
+
+  <button class="clear" on:click={clearClicked}>Clear</button>
 </div>
