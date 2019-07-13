@@ -1,11 +1,10 @@
 <script>
   import entries from "./stores/entries";
+  import { playing } from "./stores/game";
   import { remainingEntries, winner } from "./stores/derived";
   import SetupPanel from "./components/SetupPanel.svelte";
   import ControlPanel from "./components/ControlPanel.svelte";
   import BallField from "./components/BallField.svelte";
-
-  let playing = false;
 </script>
 
 <style>
@@ -24,11 +23,11 @@
 
 <div>
   <section class="controls">
-    {#if playing}
+    {#if $playing}
       <ControlPanel
         on:go={() => entries.playRound()}
         on:reset={() => {
-          playing = false;
+          playing.stop();
           entries.reset();
         }} />
 
@@ -39,7 +38,7 @@
       {/if}
     {:else}
       <SetupPanel
-        on:start={() => (playing = true)}
+        on:start={() => playing.start()}
         on:shuffle={() => entries.shuffle()}
         on:clear={() => entries.clear()}
         on:addname={event => entries.addEntry(event.detail)} />
@@ -49,7 +48,7 @@
     <BallField
       entries={$entries}
       on:ballclicked={event => {
-        if (!playing) {
+        if (!$playing) {
           entries.removeEntry(event.detail);
         }
       }} />
