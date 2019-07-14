@@ -26,3 +26,36 @@ export const round = (function() {
     increment
   };
 })();
+
+export const status = (function() {
+  const { subscribe, set } = writable(null);
+
+  const eliminatedThisRound = eliminatedThisRound => {
+    let status;
+    let allButLast = eliminatedThisRound.slice(
+      0,
+      eliminatedThisRound.length - 1
+    );
+    let last = eliminatedThisRound[eliminatedThisRound.length - 1];
+
+    switch (eliminatedThisRound.length) {
+      case 0:
+        status = "No one eliminated! How exciting!";
+        break;
+      case 1:
+        status = `${last} has been eliminated!`;
+        break;
+      case 2:
+        status = `${eliminatedThisRound.join(" and ")} have been eliminated!`;
+        break;
+      default:
+        status = `${allButLast.join(", ")}, and ${last} have been eliminated!`;
+    }
+    set(status);
+  };
+
+  return {
+    subscribe,
+    eliminatedThisRound
+  };
+})();

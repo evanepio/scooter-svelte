@@ -2,6 +2,8 @@ import { writable } from "svelte/store";
 
 import { oneInNChances, shuffleList } from "../util/random";
 
+import { status } from "./game";
+
 export default (function() {
   let id = 0;
 
@@ -34,16 +36,23 @@ export default (function() {
 
   const playRound = () =>
     update(entries => {
+      let eliminatedThisRound = [];
+
       entries.forEach(entry => {
         let nonEliminated = entries.filter(entry => !entry.eliminated).length;
+
         if (!entry.eliminated) {
           if (nonEliminated == 1) {
             entry.winner = true;
-          } else {
-            entry.eliminated = oneInNChances(4);
+          } else if (oneInNChances(4)) {
+            entry.eliminated = true;
+            eliminatedThisRound.push(entry.name);
           }
         }
       });
+
+      status.eliminatedThisRound(eliminatedThisRound);
+
       if (entries.filter(entry => !entry.eliminated).length == 1) {
         entries.forEach(entry => {
           if (!entry.eliminated) {

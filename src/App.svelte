@@ -1,6 +1,6 @@
 <script>
   import entries from "./stores/entries";
-  import { playing, round } from "./stores/game";
+  import { playing, round, status } from "./stores/game";
   import { remainingEntries, winner } from "./stores/derived";
   import SetupPanel from "./components/SetupPanel.svelte";
   import ControlPanel from "./components/ControlPanel.svelte";
@@ -39,6 +39,9 @@
         <p>Congratulations, {$winner}!</p>
       {:else}
         <p>Round {$round}</p>
+        {#if $status}
+          <p>{$status}</p>
+        {/if}
         <p>There are {$remainingEntries} entries remaining.</p>
       {/if}
     {:else}
