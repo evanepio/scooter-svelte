@@ -12,3 +12,17 @@ export const playing = (function() {
     stop
   };
 })();
+
+export const round = (function() {
+  const { subscribe, set, update } = writable(1);
+
+  const reset = () => set(1);
+
+  const increment = () => update(round => round + 1);
+
+  return {
+    subscribe,
+    reset,
+    increment
+  };
+})();
