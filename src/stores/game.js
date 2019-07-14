@@ -1,12 +1,14 @@
 import { writable } from "svelte/store";
 
-const { subscribe, set } = writable(false);
+export const playing = (function() {
+  const { subscribe, set } = writable(false);
 
-const start = () => set(true);
-const stop = () => set(false);
+  const start = () => set(true);
+  const stop = () => set(false);
 
-export const playing = {
-  subscribe,
-  start,
-  stop
-};
+  return {
+    subscribe,
+    start,
+    stop
+  };
+})();
