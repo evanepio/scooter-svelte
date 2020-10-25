@@ -1,6 +1,6 @@
 # Scooter Svelte
 
-This is an implementation of PEIDevs' infamour Scooter app. This version is implemented in [Svelte](https://svelte.dev/) version 3.0.0.
+This is an implementation of PEIDevs' infamous Scooter app. This version is implemented in [Svelte](https://svelte.dev/) version 3.0.0.
 
 Other Scooters:
 

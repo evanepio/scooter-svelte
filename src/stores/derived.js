@@ -1,4 +1,4 @@
-import { writable, derived } from "svelte/store";
+import { derived } from "svelte/store";
 
 import entries from "./entries";
 
