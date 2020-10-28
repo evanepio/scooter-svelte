@@ -94,7 +94,7 @@
   <input bind:value={name} on:keydown={handleKeyDown} />
 
   <p>
-    Want to add a bunch of names all at once, possible copied from a list some
+    Want to add a bunch of names all at once, possibly copied from a list some
     where? Try this:
   </p>
 
