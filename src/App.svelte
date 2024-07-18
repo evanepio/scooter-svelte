@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import entries from "./stores/entries";
   import { playing, round, status } from "./stores/game";
   import { remainingEntries, winner } from "./stores/derived";
@@ -6,20 +6,6 @@
   import ControlPanel from "./components/ControlPanel.svelte";
   import BallField from "./components/BallField.svelte";
 </script>
-
-<style>
-  div {
-    display: flex;
-    flex-direction: row;
-  }
-
-  .controls {
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-direction: column;
-    width: 20%;
-  }
-</style>
 
 <div>
   <section class="controls">
